@@ -1,0 +1,46 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Colors</title>
+    <link rel="shortcut icon" href="http://example.com/myicon.ico" />
+</head>
+
+<br>
+<br>
+<br>
+<br>
+<div id="login-box" class="container demo-page">
+    <br>
+    <div class="row text-center">
+        <div class="col-md-12">
+            <h1 class="page-header">Classify Colors</h1>
+            <div ng-if="R<=255&&G<=255&&B<=255" >
+                <button class="btn btn-primary run-demo" ng-click="train()" ng-disabled="disableTrain">START TRAINING</button>
+            </div>
+
+
+        <h3>{{error}}</h3>
+            <div class="row">
+                <div class="col-xs-3"></div>
+                <div class="col-xs-2">
+                    <input class="form-control " min="0" max="255" type="number"  ng-model="R" name= "r" placeholder="Red here">
+                </div>
+                <div class="col-xs-2">
+                    <input class="form-control " min="0" max="255" type="number"  ng-model="G" name= "g" placeholder="Green here">
+                </div>
+                <div class="col-xs-2">
+                    <input class="form-control " min="0" max="255" type="number"  ng-model="B" name= "b" placeholder="Blue here">
+                </div>
+                <div class="col-xs-3"></div>
+            </div>
+
+
+        <div id="selectedcolor" class="w3-large" style="background-color: rgb({{R}},{{G}},{{B}});">
+            <h2>Input Color</h2>
+        </div>
+
+        <div id="selectedcolor2" class="w3-large" style="background-color: rgb({{netR}},{{netG}},{{netB}});">
+            <h2>Output Color</h2>
+        </div>
+        </div>
+    </div>
+</div>

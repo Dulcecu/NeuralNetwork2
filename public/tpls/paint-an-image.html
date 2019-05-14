@@ -1,0 +1,54 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Paint</title>
+    <link rel="shortcut icon" href="http://example.com/myicon.ico" />
+</head>
+<br>
+<br>
+<br>
+<div id="login-box" class="container demo-page">
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="page-header">Image Reconstruction</h1>
+            <div class="text-center">
+                <button class="btn btn-primary run-demo" ng-click="train()" ng-disabled="!file || trainingStarted">START TRAINING</button>
+            </div>
+            <br>
+            <div class="row text-center" style="margin-bottom: 2%;">
+                <div class="btn-group">
+                    <button class="btn btn-primary run-demo" ng-click="stop()" ng-if="file" ng-disabled="file && !trainingStarted">STOP TRAINING</button>
+                </div>
+
+            </div>
+
+        </div>
+<div class="row">
+    <div class="col-xs-6 text-center" ngf-select ng-model="file" ngf-pattern="'image/*'"
+         ngf-accept="'image/*'" ngf-max-size="2MB" ngf-min-height="80"
+         ngf-resize="{width: 250, height: 250 , centerCrop:true}">
+        <button class="btn btn-default" style="margin-bottom: 2%;" ng-disabled="trainingStarted">Select</button>
+        <p class="text-center"><small>Original</small></p>
+        <img id='input' ngf-src="file" alt=" Image 4">
+    </div>
+
+    <div class="col-xs-6 text-center" style="margin-top:22px!important;">
+        <br>
+        <p ><small>Painted by Network</small></p>
+        <div >
+            <a class="thumbnail canvas-fix">
+                <canvas id="canvas-demo4" width="250" height="250"></canvas>
+            </a>
+
+        </div>
+    </div>
+</div>
+
+
+        <hr ng-show="trainingStarted">
+        <div ng-if="trainingStarted" class="row text-center">
+            <strong>Iterations:</strong> <span id="iterations"></span>
+        </div>
+        <hr ng-show="trainingStarted">
+    </div>
+</div>
